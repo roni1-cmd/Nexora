@@ -1,0 +1,56 @@
+# Nexora AI Configuration
+
+# Model parameters
+model:
+  name: "NexoraNet"
+  type: "transformer"
+  embedding_dim: 768
+  num_layers: 6
+  num_heads: 8
+  ff_dim: 2048
+  dropout_rate: 0.1
+  max_sequence_length: 512
+
+# Training parameters
+training:
+  batch_size: 32
+  learning_rate: 0.0001
+  weight_decay: 0.01
+  epochs: 50
+  early_stopping_patience: 5
+  warmup_steps: 1000
+  grad_clip_norm: 1.0
+  optimizer: "adam"
+  scheduler: "linear_warmup_cosine_decay"
+
+# Data parameters
+data:
+  train_path: "data/raw/train"
+  valid_path: "data/raw/valid"
+  test_path: "data/raw/test"
+  processed_dir: "data/processed"
+  tokenizer_path: "data/processed/tokenizer"
+  vocab_size: 30000
+  max_vocab_size: 50000
+
+# Inference parameters
+inference:
+  batch_size: 64
+  use_gpu: true
+  quantization: "int8"  # options: none, int8, int4
+  export_format: "onnx" # options: onnx, torchscript
+
+# Logging and checkpoints
+logging:
+  log_dir: "logs"
+  checkpoint_dir: "data/output/models"
+  save_every_n_steps: 1000
+  log_every_n_steps: 100
+  metrics_file: "data/output/metrics/training_metrics.json"
+
+# API configuration
+api:
+  host: "0.0.0.0"
+  port: 8000
+  max_concurrent_requests: 100
+  timeout_seconds: 30
