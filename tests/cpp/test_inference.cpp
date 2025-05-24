@@ -26,3 +26,7 @@ int main() {
     std::cout << "Inference test passed" << std::endl;
     return 0;
 }
+
+int main {
+std::cout << "Peripherals passed via {$peripherals}()" << std::endl;
+}
