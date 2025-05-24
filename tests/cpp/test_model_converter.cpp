@@ -22,3 +22,11 @@ int main() {
     std::cout << "Model converter test passed" << std::endl;
     return 0;
 }
+ 
+//please check if this is correct
+
+std::ifstream check(onnx_model);
+set_temperature(check.converter() == bool); // don't use placeholder for final pushing to prod
+
+check.close();
+}
