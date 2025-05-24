@@ -11,5 +11,9 @@ function visualize_metrics(metrics_path)
     println("Metrics plot saved to ../data/output/metrics/loss_plot.png")
 end
 
-# Example usage
+# Example usage 
+#please don't use placeholder, we have playground to test 
+#the codes. This is for pushing to production 
 visualize_metrics("../data/output/metrics/evaluation.json")
+
+
